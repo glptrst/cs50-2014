@@ -1,0 +1,2 @@
+Price: $<?= $formatted_price ?>
+

@@ -1,0 +1,34 @@
+0.  It's a string of 45 characters. 45 is the maximum length for a word defined in dictionary.h.
+1.  getrusage() (get resource usage) is a function that takes 2 arguments; the first one is of type int
+    and the second one is a pointer to a rusage structure. getrusage() returns the resource usage measures
+    for the first argument, and these measures are returned in the structure pointed to by the second
+    argument. getrusage and struct rusage are both defined in <sys/resource.h>.
+    If successfull getrusage returns 0, otherwise -1. 
+2.  There are 16 elements. 2 are of type struct timeval and 14 are of type long. 
+    struct timeval is defined in <sys/time.h>.
+3.  I think because calling by value would use memory that we can save calling by reference. 
+4.  The outer loop iterates over every character in the text file using the fgetc function. 
+    Alphabetical characters and apostrophes are stored in the array word[] till another type of  
+    character - which is supposed to be a newline character - is found.
+    Once we have an entire word, we look for it in the vocabulary using the check function and we update the
+    relevant variables.
+    The process is repeated till EOF of text file is reached. 
+    Too long strings and words with numbers are ignored. 
+5.  Using fgetc makes easier to excludes words with digits (or other characters we want exclude ).
+6.  Because the strings read by load (words in dictionary) and the strings read by check (words to check)
+    shall not change. 
+7.  I've used a hash table. Collision have been handled with linked list. 
+    The table has simply 26 buckets and the hashing is based on the first letter of the key. 
+8.  My first version of speller was very slow...
+    With the large dictionary and austinpowers.txt:
+    TIME IN load:         4.12
+    TIME IN check:        0.66
+    TIME IN size:         0.00
+    TIME IN unload:       0.00
+    TIME IN TOTAL:        4.78   
+9.  load() was calling an additional function to insert alphabetically the nodes in the buckets. 
+    But it turned out that this function was making load() too slow, so I removed it.
+    I'm going to try to increase the number of buckets of the hash table int order to decrease time in check without
+    increasing too much time in load (till now I've tried with no success);
+10. My hash table and hash function are too simple and they can be improved.
+    Increasing the number of buckets and using a different hash function will improve the running time. 

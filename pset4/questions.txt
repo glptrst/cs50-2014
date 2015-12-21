@@ -1,0 +1,35 @@
+0.  BMP: up to 256 teracolors (281,474,976,710,656 colors).
+    GIF: 256.
+    JPEG: over 16 million colors.
+    PNG: over 16 million colors.
+1.  GIF.
+2.  The difference is that lossless compressione doesn't degrade the image. 
+3.  JPEG.
+4.  The operating system modifies the name of the directory entry of the file in order to
+    signal that the file has been deleted and that the directory can be recycled. 
+    Then all of the file’s FAT clusters are moved to the hard drive’s list of free clusters. 
+    The actual file is left untouched. 
+5.  Overwriting "with a few random passes" should be sufficient with a today's disk drive. 
+6.  stdint.h is a file header introduced in the C99 standard library. It provides a set of typedefs 
+    which specify exact-width integer type, togheter with type's minimum and maximum possible values. 
+7.  They let the pogrammer write a more portable code. 
+8.  BYTE: 1 bytes.
+    DWORD: 4 bytes. 
+    LONG: 4 bytes. 
+    WORD: 2 bytes.
+9.  The first 2 bytes of the BMP file format are the character "B" then the character "M" in ASCII encoding;
+    0x42 0x4D in hexadecimal.
+10. bfSize is the size, in bytes, of the bitmap file.
+    biSize is the number of bytes required by the BITMAPINFOHEADER structure.
+11. For uncompressed RGB bitmaps, if biHeight is positive, the bitmap is a bottom-up DIB (device-independent 
+    bitmap) with the origin at the lower left corner. If biHeight is negative, the bitmap is a top-down DIB 
+    with the origin at the upper left corner.
+12. biBitCount. 
+13. It would return NULL if the attempt to open the file in write mode fails. 
+    We could, for example, have no permission to write in that directory. 
+14. Because the number of elements to read is 1. 
+15. 3.
+16. It changes the file position of a stream. In copy.c it is used to skip over padding. 
+17. SEEK_CUR is a constast used as argument of fseek to indicate that the "offset"(other argument) 
+    is relative to the current file position( and not the end of file or the beginning of file). 
+18. It seems Rob Bowden holding a cat to me. 
